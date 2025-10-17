@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual Mentoria é Para Você? - Mayga Caroliny</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ========== SEÇÃO 1: HERO ========== */
+        .hero {
+            background: linear-gradient(135deg, ##102A0B 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========== BOTÕES DE NAVEGAÇÃO ========== */
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: ##102A0B;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* ========== SEÇÃO 2: QUIZ RÁPIDO ========== */
+        .quiz-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            display: none;
+        }
+
+        .quiz-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quiz-section h2 {
+            color: ##102A0B;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+        }
+
+        .quiz-question p {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
+        }
+
+        .quiz-option:hover {
+            border-color: ##102A0B;
+            background: #f0f4ff;
+        }
+
+        .quiz-option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz-option label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .btn-quiz {
+            background: ##102A0B;
+            color: white;
+            margin-top: 30px;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        .btn-quiz:hover {
+            background: #764ba2;
+        }
+
+        /* ========== RESULTADO QUIZ ========== */
+        .quiz-result {
+            display: none;
+            background: linear-gradient(135deg, ##102A0B 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .quiz-result.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quiz-result h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .quiz-result p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        /* ========== SEÇÃO 3: CARDS DAS MENTORIAS ========== */
+        .cards-section {
+            margin-bottom: 60px;
+            display: none;
+        }
+
+        .cards-section.active {
+            display: block;
+        }
+
+        .cards-section h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 5px solid ##102A0B;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .card.viva { border-top-color: #f093fb; }
+        .card.momentum { border-top-color: #4facfe; }
+        .card.reposicionamento { border-top-color: #43e97b; }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card .subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9rem;
+        }
+
+        .card-meta span {
+            color: ##102A0B;
+            font-weight: 600;
+        }
+
+        .card-features {
+            list-style: none;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .card-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            color: #555;
+        }
+
+        .card-features li:before {
+            content: "✓";
+            color: ##102A0B;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .card-price {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card-price p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .card-price .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: ##102A0B;
+        }
+
+        .btn-card {
+            background: ##102A0B;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-card:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        /* ========== SEÇÃO 4: FAQ ========== */
+        .faq-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            display: none;
+        }
+
+        .faq-section.active {
+            display: block;
+        }
+
+        .faq-section h2 {
+            color: ##102A0B;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-question:before {
+            content: "→";
+            margin-right: 10px;
+            color: ##102A0B;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            color: #666;
+            margin-left: 20px;
+            line-height: 1.7;
+        }
+
+        /* ========== SEÇÃO 5: CTA FINAL ========== */
+        .cta-final {
+            background: linear-gradient(135deg, ##102A0B 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .cta-final h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-final p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons-final {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn-cta {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-cta-primary {
+            background: white;
+            color: ##102A0B;
+        }
+
+        .btn-cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-cta-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-cta-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        .cta-final .notice {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: ##102A0B;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #764ba2;
+        }
+
+        /* ========== RESPONSIVO ========== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons-final {
+                flex-direction: column;
+            }
+
+            .btn-cta {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SEÇÃO 1: HERO -->
+        <section class="hero">
+            <h1>🎯 Qual Mentoria é Para Você?</h1>
+            <p class="subtitle">Você sabe o que quer, mas não consegue fazer acontecer?</p>
+            <p>Tenho 4 programas diferentes. Um deles combina com seu momento.</p>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-primary" onclick="showSection('quiz')">Fazer Teste (30 seg)</button>
+                <button class="btn btn-secondary" onclick="showSection('cards')">Ver as 4 Mentorias</button>
+                <a href="https://wa.me/5541987516166?text=Oi%20Mayga!%20Gostaria%20de%20saber%20mais%20sobre%20suas%20mentorias" class="btn btn-secondary" target="_blank">WhatsApp</a>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: QUIZ -->
+        <section class="quiz-section" id="quiz">
+            <h2>Descubra Qual é Sua Mentoria Ideal</h2>
+            
+            <div class="quiz-question">
+                <p>1️⃣ Você já sabe exatamente o que quer fazer?</p>
+                <div class="quiz-options">
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="nao"> Não, estou bem perdido
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="parcial"> Parcialmente, mas falta clareza
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="sim"> Sim, tenho visão clara
+                    </label>
+                </div>
+            </div>
+
+            <div class="quiz-question">
+                <p>2️⃣ Qual é seu maior desafio AGORA?</p>
+                <div class="quiz-options">
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="clareza"> Clareza mental e propósito
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="procrastinacao"> Procrastinação e bloqueios mentais
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="execucao"> Execução (ideia clara, mas emperrado)
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="carreira"> Mudança/Reposicionamento profissional
+                    </label>
+                </div>
+            </div>
+
+            <div class="quiz-question">
+                <p>3️⃣ Qual seu prazo ideal para ver resultados?</p>
+                <div class="quiz-options">
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="30"> Até 30 dias (resultado rápido)
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="3"> 2-3 meses (transformação real)
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="flex"> Sem pressa, quero profundidade
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn btn-quiz" onclick="calcularQuiz()">Ver Meu Match 🎯</button>
+        </section>
+
+        <!-- RESULTADO QUIZ -->
+        <div class="quiz-result" id="quizResult">
+            <h3>🎯 Seu Match Ideal:</h3>
+            <p id="resultMessage"></p>
+            <a href="https://wa.me/5541987516166?text=Descobri%20meu%20match%20ideal!%20Gostaria%20de%20saber%20mais%20e%20agendar%20uma%20sess%C3%A3o%20diagn%C3%B3stica" class="btn btn-primary" target="_blank">Agendar Diagnóstico Gratuito</a>
+        </div>
+
+        <!-- SEÇÃO 3: CARDS -->
+        <section class="cards-section" id="cards">
+            <h2>Os 4 Programas de Mentoria</h2>
+            
+            <div class="cards-grid">
+                <!-- CARD 1: MOMENTUM -->
+                <div class="card momentum">
+                    <div class="card-icon">🚀</div>
+                    <h3>Mentoria Momentum</h3>
+                    <p class="subtitle">Resultado em 30 Dias</p>
+                    
+                    <div class="card-meta">
+                        <span>⏱️ 4 semanas</span>
+                        <span>💬 4 sessões</span>
+                    </div>
+
+                    <ul class="card-features">
+                        <li>Clareza mental + Propósito</li>
+                        <li>Plano executável</li>
+                        <li>Suporte via WhatsApp</li>
+                        <li>Bônus no valor de R$ 738</li>
+                    </ul>
+
+                    <div class="card-price">
+                        <p>Investimento</p>
+                        <div class="price">R$ 797</div>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">ou 3x R$ 679 (trimestral)</p>
+                    </div>
+
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria%20de%20saber%20mais%20sobre%20Mentoria%20Momentum', '_blank')">Conhecer Momentum</button>
+                </div>
+
+                <!-- CARD 2: RAÍZES & VISÃO -->
+                <div class="card" style="border-top-color: #f093fb;">
+                    <div class="card-icon">🌳</div>
+                    <h3>Raízes & Visão</h3>
+                    <p class="subtitle">Estabilidade + Propósito</p>
+                    
+                    <div class="card-meta">
+                        <span>⏱️ 8 sessões</span>
+                        <span>💬 Profundidade</span>
+                    </div>
+
+                    <ul class="card-features">
+                        <li>Organização mental e emocional</li>
+                        <li>Visão de futuro clara</li>
+                        <li>Acompanhamento diário</li>
+                        <li>Fortalecimento interno</li>
+                    </ul>
+
+                    <div class="card-price">
+                        <p>Investimento</p>
+                        <div class="price">R$ 2.497</div>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Programa completo</p>
+                    </div>
+
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria%20de%20saber%20mais%20sobre%20Ra%C3%ADzes%20e%20Vis%C3%A3o', '_blank')">Conhecer Raízes & Visão</button>
+                </div>
+
+                <!-- CARD 3: VIVA -->
+                <div class="card viva">
+                    <div class="card-icon">💎</div>
+                    <h3>Método V.I.V.A</h3>
+                    <p class="subtitle">Do Caos à Execução</p>
+                    
+                    <div class="card-meta">
+                        <span>⏱️ 12 semanas</span>
+                        <span>💬 Premium</span>
+                    </div>
+
+                    <ul class="card-features">
+                        <li>Visão → Identidade → Vontade → Ação</li>
+                        <li>4 pilares integrados</li>
+                        <li>Resultados tangíveis</li>
+                        <li>Autonomia garantida</li>
+                    </ul>
+
+                    <div class="card-price">
+                        <p>Investimento</p>
+                        <div class="price">R$ 4.497</div>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">Transformação completa</p>
+                    </div>
+
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria%20de%20saber%20mais%20sobre%20M%C3%A9todo%20V.I.V.A', '_blank')">Conhecer V.I.V.A</button>
+                </div>
+
+                <!-- CARD 4: REPOSICIONAMENTO -->
+                <div class="card reposicionamento">
+                    <div class="card-icon">📈</div>
+                    <h3>Reposicionamento Profissional</h3>
+                    <p class="subtitle">Estabilidade + Liberdade</p>
+                    
+                    <div class="card-meta">
+                        <span>⏱️ 3 meses</span>
+                        <span>💬 Estratégia</span>
+                    </div>
+
+                    <ul class="card-features">
+                        <li>Entrada em grandes empresas</li>
+                        <li>Estratégia de carreira</li>
+                        <li>Base para empreender depois</li>
+                        <li>2 sessões/mês + acompanhamento</li>
+                    </ul>
+
+                    <div class="card-price">
+                        <p>Investimento</p>
+                        <div class="price">R$ 2.400</div>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">3 meses de transformação</p>
+                    </div>
+
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria%20de%20saber%20mais%20sobre%20Reposicionamento%20Profissional', '_blank')">Conhecer Reposicionamento</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: FAQ -->
+        <section class="faq-section" id="faq">
+            <h2>❓ Dúvidas Frequentes</h2>
+
+            <div class="faq-item">
+                <p class="faq-question">Por onde começar?</p>
+                <p class="faq-answer">Depende do seu momento. Faça o teste rápido (30 seg) que recomendo sua mentoria ideal. Ou converse comigo via WhatsApp.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Quanto tempo leva?</p>
+                <p class="faq-answer">De 30 dias (Momentum) a 3 meses (Reposicionamento). Cada programa tem sua própria duração conforme profundidade.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">É 100% online?</p>
+                <p class="faq-answer">Sim! Todas as mentorias são 100% online. Você escolhe horário e local para as sessões.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Posso experimentar antes de investir?</p>
+                <p class="faq-answer">Sim! Ofereço uma sessão diagnóstica gratuita para todos. Sem compromisso. Aí você decide se quer continuar.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Qual é a diferença entre as mentorias?</p>
+                <p class="faq-answer">Momentum é porta de entrada (rápido). Raízes é profundidade emocional. V.I.V.A é execução máxima. Reposicionamento é estratégia de carreira.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Vocês oferecem reembolso?</p>
+                <p class="faq-answer">Sim! Se após as 4 primeiras sessões você não sentir avanço em clareza e ação, ofereço 1 sessão bônus sem custo.</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5: CTA FINAL -->
+        <section class="cta-final">
+            <h2>🎯 Pronto Para Transformar?</h2>
+            <p>Escolha seu caminho. O momento é agora.</p>
+            
+            <div class="cta-buttons-final">
+                <button class="btn-cta btn-cta-primary" onclick="showSection('quiz')">Fazer Teste Rápido</button>
+                <a href="https://wa.me/5541987516166?text=Oi%20Mayga!%20Gostaria%20de%20falar%20sobre%20minhas%20mentorias%20e%20agendar%20uma%20sess%C3%A3o%20diagn%C3%B3stica" class="btn-cta btn-cta-secondary" target="_blank">Falar Comigo no WhatsApp</a>
+            </div>
+
+            <p class="notice">⚠️ Aviso: Vagas limitadas. Priorizo por ordem de chegada.</p>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Mayga Caroliny Santos</strong></p>
+        <p>Especialista em Desenvolvimento Humano | Neurociência do Desenvolvimento (PUC/RS)</p>
+        <p>12+ anos de experiência em grandes corporações</p>
+        
+        <div class="social-links">
+            <a href="https://instagram.com/maygacaroliny" target="_blank">Instagram</a>
+            <a href="https://youtube.com" target="_blank">YouTube</a>
+            <a href="https://wa.me/5541987516166" target="_blank">WhatsApp</a>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(section) {
+            // Esconde tudo
+            document.getElementById('quiz').classList.remove('active');
+            document.getElementById('cards').classList.remove('active');
+            document.getElementById('faq').classList.remove('active');
+            document.getElementById('quizResult').classList.remove('active');
+
+            // Mostra seção selecionada
+            if (section === 'quiz') {
+                document.getElementById('quiz').classList.add('active');
+                window.scrollTo({ top: document.getElementById('quiz').offsetTop - 100, behavior: 'smooth' });
+            } else if (section === 'cards') {
+                document.getElementById('cards').classList.add('active');
+                window.scrollTo({ top: document.getElementById('cards').offsetTop - 100, behavior: 'smooth' });
+            } else if (section === 'faq') {
+                document.getElementById('faq').classList.add('active');
+            }
+        }
+
+        function calcularQuiz() {
+            const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+            const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+            const q3 = document.querySelector('input[name="q3"]:checked')?.value;
+
+            if (!q1 || !q2 || !q3) {
+                alert('Por favor, responda todas as 3 perguntas!');
+                return;
+            }
+
+            let resultado = '';
+            let mensagem = '';
+            let link = '';
+
+            // LÓGICA DO QUIZ
+            if (q2 === 'procrastinacao' || q3 === '30') {
+                resultado = 'Mentoria Momentum 🚀';
+                mensagem = 'Você precisa de resultado RÁPIDO. Momentum é sua porta de entrada: 4 semanas, clareza + execução. R$ 797/mês ou R$ 1.497 trimestral.';
+                link = 'https://wa.me/5541987516166?text=Descobri%20meu%20match:%20Mentoria%20Momentum!%20Gostaria%20de%20saber%20mais%20sobre%20resultado%20em%2030%20dias';
+            } else if ((q2 === 'execucao' || q2 === 'clareza') && q3 === '3') {
+                resultado = 'Método V.I.V.A 💎';
+                mensagem = 'Você tem ideia clara mas está emperrado. V.I.V.A é seu programa: 12 semanas de transformação estruturada. Visão → Identidade → Vontade → Ação. R$ 4.497.';
+                link = 'https://wa.me/5541987516166?text=Descobri%20meu%20match:%20M%C3%A9todo%20V.I.V.A!%20Gostaria%20de%20explorar%20este%20programa%20premium';
+            } else if (q2 === 'clareza' && (q1 === 'nao' || q1 === 'parcial')) {
+                resultado = 'Raízes & Visão 🌳';
+                mensagem = 'Você precisa de clareza emocional + propósito profundo. Raízes & Visão é ideal: 8 sessões de estabilidade mental. R$ 2.497.';
+                link = 'https://wa.me/5541987516166?text=Descobri%20meu%20match:%20Ra%C3%ADzes%20e%20Vis%C3%A3o!%20Gostaria%20de%20aprofundar%20em%20clareza%20e%20prop%C3%B3sito';
+            } else if (q2 === 'carreira') {
+                resultado = 'Reposicionamento Profissional 📈';
+                mensagem = 'Você está em transição de carreira. Reposicionamento é seu programa: 3 meses de estratégia estruturada. CLT sólida + liberdade pra empreender depois. R$ 2.400.';
+                link = 'https://wa.me/5541987516166?text=Descobri%20meu%20match:%20Reposicionamento%20Profissional!%20Gostaria%20de%20saber%20mais%20sobre%20transição%20de%20carreira';
+            } else {
+                resultado = 'Momentum ou Raízes & Visão';
+                mensagem = 'Você pode começar com Momentum (porta de entrada rápida) ou Raízes & Visão (aprofundamento emocional). Converse comigo!';
+                link = 'https://wa.me/5541987516166?text=Fiz%20o%20teste%20e%20gostaria%20de%20conversar%20para%20definir%20meu%20melhor%20programa';
+            }
+
+            // Mostra resultado
+            document.getElementById('resultMessage').innerHTML = `
+                <strong style="font-size: 1.3rem;">${resultado}</strong><br><br>
+                ${mensagem}
+            `;
+            
+            // Atualiza link do botão
+            const btn = document.querySelector('#quizResult .btn-primary');
+            btn.href = link;
+
+            // Esconde quiz, mostra resultado
+            document.getElementById('quiz').classList.remove('active');
+            document.getElementById('quizResult').classList.add('active');
+            
+            window.scrollTo({ top: document.getElementById('quizResult').offsetTop - 100, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+
