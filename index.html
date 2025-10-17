@@ -26,7 +26,7 @@
 
         /* ========== SEÇÃO 1: HERO ========== */
         .hero {
-            background: linear-gradient(135deg, ##102A0B 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #102A0B 0%, #1a3d11 100%);
             color: white;
             padding: 60px 40px;
             border-radius: 20px;
@@ -79,7 +79,7 @@
 
         .btn-primary {
             background: white;
-            color: ##102A0B;
+            color: #102A0B;
         }
 
         .btn-primary:hover {
@@ -119,7 +119,7 @@
         }
 
         .quiz-section h2 {
-            color: ##102A0B;
+            color: #102A0B;
             margin-bottom: 30px;
             font-size: 1.8rem;
         }
@@ -150,8 +150,8 @@
         }
 
         .quiz-option:hover {
-            border-color: ##102A0B;
-            background: #f0f4ff;
+            border-color: #102A0B;
+            background: #f0f5f0;
         }
 
         .quiz-option input[type="radio"] {
@@ -166,7 +166,7 @@
         }
 
         .btn-quiz {
-            background: ##102A0B;
+            background: #102A0B;
             color: white;
             margin-top: 30px;
             width: 100%;
@@ -175,13 +175,13 @@
         }
 
         .btn-quiz:hover {
-            background: #764ba2;
+            background: #1a3d11;
         }
 
         /* ========== RESULTADO QUIZ ========== */
         .quiz-result {
             display: none;
-            background: linear-gradient(135deg, ##102A0B 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #102A0B 0%, #1a3d11 100%);
             color: white;
             padding: 40px;
             border-radius: 15px;
@@ -240,7 +240,7 @@
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            border-top: 5px solid ##102A0B;
+            border-top: 5px solid #102A0B;
             display: flex;
             flex-direction: column;
         }
@@ -248,15 +248,6 @@
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .card.viva { border-top-color: #f093fb; }
-        .card.momentum { border-top-color: #4facfe; }
-        .card.reposicionamento { border-top-color: #43e97b; }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
         }
 
         .card h3 {
@@ -282,7 +273,7 @@
         }
 
         .card-meta span {
-            color: ##102A0B;
+            color: #102A0B;
             font-weight: 600;
         }
 
@@ -300,11 +291,11 @@
         }
 
         .card-features li:before {
-            content: "✓";
-            color: ##102A0B;
+            content: "→";
+            color: #102A0B;
             font-weight: bold;
             margin-right: 10px;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         .card-price {
@@ -313,6 +304,11 @@
             border-radius: 10px;
             margin-bottom: 20px;
             text-align: center;
+            display: none;
+        }
+
+        .card-price.show {
+            display: block;
         }
 
         .card-price p {
@@ -324,11 +320,11 @@
         .card-price .price {
             font-size: 1.8rem;
             font-weight: 700;
-            color: ##102A0B;
+            color: #102A0B;
         }
 
         .btn-card {
-            background: ##102A0B;
+            background: #102A0B;
             color: white;
             padding: 12px;
             border: none;
@@ -340,7 +336,7 @@
         }
 
         .btn-card:hover {
-            background: #764ba2;
+            background: #1a3d11;
             transform: translateY(-2px);
         }
 
@@ -359,7 +355,7 @@
         }
 
         .faq-section h2 {
-            color: ##102A0B;
+            color: #102A0B;
             margin-bottom: 30px;
             font-size: 1.8rem;
         }
@@ -386,7 +382,7 @@
         .faq-question:before {
             content: "→";
             margin-right: 10px;
-            color: ##102A0B;
+            color: #102A0B;
             font-weight: bold;
         }
 
@@ -398,7 +394,7 @@
 
         /* ========== SEÇÃO 5: CTA FINAL ========== */
         .cta-final {
-            background: linear-gradient(135deg, ##102A0B 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #102A0B 0%, #1a3d11 100%);
             color: white;
             padding: 60px 40px;
             border-radius: 20px;
@@ -439,7 +435,7 @@
 
         .btn-cta-primary {
             background: white;
-            color: ##102A0B;
+            color: #102A0B;
         }
 
         .btn-cta-primary:hover {
@@ -486,14 +482,14 @@
         }
 
         .social-links a {
-            color: ##102A0B;
+            color: #102A0B;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            color: #764ba2;
+            color: #1a3d11;
         }
 
         /* ========== RESPONSIVO ========== */
@@ -532,14 +528,14 @@
     <div class="container">
         <!-- SEÇÃO 1: HERO -->
         <section class="hero">
-            <h1>🎯 Qual Mentoria é Para Você?</h1>
+            <h1>Qual Mentoria é Para Você?</h1>
             <p class="subtitle">Você sabe o que quer, mas não consegue fazer acontecer?</p>
-            <p>Tenho 4 programas diferentes. Um deles combina com seu momento.</p>
+            <p>Identifique qual programa vai transformar seu bloqueio mental em ação real.</p>
             
             <div class="nav-buttons">
                 <button class="btn btn-primary" onclick="showSection('quiz')">Fazer Teste (30 seg)</button>
                 <button class="btn btn-secondary" onclick="showSection('cards')">Ver as 4 Mentorias</button>
-                <a href="https://wa.me/5541987516166?text=Oi%20Mayga!%20Gostaria%20de%20saber%20mais%20sobre%20suas%20mentorias" class="btn btn-secondary" target="_blank">WhatsApp</a>
+                <a href="https://wa.me/5541987516166?text=Olá, vim pelo link da bio do Instagram." class="btn btn-secondary" target="_blank">WhatsApp</a>
             </div>
         </section>
 
@@ -548,7 +544,7 @@
             <h2>Descubra Qual é Sua Mentoria Ideal</h2>
             
             <div class="quiz-question">
-                <p>1️⃣ Você já sabe exatamente o que quer fazer?</p>
+                <p>1. Você já sabe exatamente o que quer fazer?</p>
                 <div class="quiz-options">
                     <label class="quiz-option">
                         <input type="radio" name="q1" value="nao"> Não, estou bem perdido
@@ -563,7 +559,7 @@
             </div>
 
             <div class="quiz-question">
-                <p>2️⃣ Qual é seu maior desafio AGORA?</p>
+                <p>2. Qual é seu maior desafio AGORA?</p>
                 <div class="quiz-options">
                     <label class="quiz-option">
                         <input type="radio" name="q2" value="clareza"> Clareza mental e propósito
@@ -581,7 +577,7 @@
             </div>
 
             <div class="quiz-question">
-                <p>3️⃣ Qual seu prazo ideal para ver resultados?</p>
+                <p>3. Qual seu prazo ideal para ver resultados?</p>
                 <div class="quiz-options">
                     <label class="quiz-option">
                         <input type="radio" name="q3" value="30"> Até 30 dias (resultado rápido)
@@ -595,14 +591,14 @@
                 </div>
             </div>
 
-            <button class="btn btn-quiz" onclick="calcularQuiz()">Ver Meu Match 🎯</button>
+            <button class="btn btn-quiz" onclick="calcularQuiz()">Ver Meu Match</button>
         </section>
 
         <!-- RESULTADO QUIZ -->
         <div class="quiz-result" id="quizResult">
-            <h3>🎯 Seu Match Ideal:</h3>
+            <h3>Seu Match Ideal:</h3>
             <p id="resultMessage"></p>
-            <a href="https://wa.me/5541987516166?text=Descobri%20meu%20match%20ideal!%20Gostaria%20de%20saber%20mais%20e%20agendar%20uma%20sess%C3%A3o%20diagn%C3%B3stica" class="btn btn-primary" target="_blank">Agendar Diagnóstico Gratuito</a>
+            <a href="https://wa.me/5541987516166?text=Descobri meu match ideal! Gostaria de saber mais e agendar uma sessão diagnóstica" class="btn btn-primary" target="_blank">Agendar Diagnóstico Gratuito</a>
         </div>
 
         <!-- SEÇÃO 3: CARDS -->
@@ -611,14 +607,13 @@
             
             <div class="cards-grid">
                 <!-- CARD 1: MOMENTUM -->
-                <div class="card momentum">
-                    <div class="card-icon">🚀</div>
+                <div class="card">
                     <h3>Mentoria Momentum</h3>
                     <p class="subtitle">Resultado em 30 Dias</p>
                     
                     <div class="card-meta">
-                        <span>⏱️ 4 semanas</span>
-                        <span>💬 4 sessões</span>
+                        <span>4 semanas</span>
+                        <span>4 sessões</span>
                     </div>
 
                     <ul class="card-features">
@@ -628,24 +623,23 @@
                         <li>Bônus no valor de R$ 738</li>
                     </ul>
 
-                    <div class="card-price">
+                    <div class="card-price show">
                         <p>Investimento</p>
                         <div class="price">R$ 797</div>
                         <p style="font-size: 0.8rem; margin-top: 5px;">ou 3x R$ 679 (trimestral)</p>
                     </div>
 
-                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria%20de%20saber%20mais%20sobre%20Mentoria%20Momentum', '_blank')">Conhecer Momentum</button>
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Mentoria Momentum', '_blank')">Conhecer Momentum</button>
                 </div>
 
                 <!-- CARD 2: RAÍZES & VISÃO -->
-                <div class="card" style="border-top-color: #f093fb;">
-                    <div class="card-icon">🌳</div>
+                <div class="card">
                     <h3>Raízes & Visão</h3>
                     <p class="subtitle">Estabilidade + Propósito</p>
                     
                     <div class="card-meta">
-                        <span>⏱️ 8 sessões</span>
-                        <span>💬 Profundidade</span>
+                        <span>8 sessões</span>
+                        <span>Profundidade</span>
                     </div>
 
                     <ul class="card-features">
@@ -655,24 +649,17 @@
                         <li>Fortalecimento interno</li>
                     </ul>
 
-                    <div class="card-price">
-                        <p>Investimento</p>
-                        <div class="price">R$ 2.497</div>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">Programa completo</p>
-                    </div>
-
-                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria%20de%20saber%20mais%20sobre%20Ra%C3%ADzes%20e%20Vis%C3%A3o', '_blank')">Conhecer Raízes & Visão</button>
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Raízes e Visão', '_blank')">Conhecer Raízes & Visão</button>
                 </div>
 
                 <!-- CARD 3: VIVA -->
-                <div class="card viva">
-                    <div class="card-icon">💎</div>
+                <div class="card">
                     <h3>Método V.I.V.A</h3>
                     <p class="subtitle">Do Caos à Execução</p>
                     
                     <div class="card-meta">
-                        <span>⏱️ 12 semanas</span>
-                        <span>💬 Premium</span>
+                        <span>12 semanas</span>
+                        <span>Premium</span>
                     </div>
 
                     <ul class="card-features">
@@ -682,24 +669,17 @@
                         <li>Autonomia garantida</li>
                     </ul>
 
-                    <div class="card-price">
-                        <p>Investimento</p>
-                        <div class="price">R$ 4.497</div>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">Transformação completa</p>
-                    </div>
-
-                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria%20de%20saber%20mais%20sobre%20M%C3%A9todo%20V.I.V.A', '_blank')">Conhecer V.I.V.A</button>
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Método V.I.V.A', '_blank')">Conhecer V.I.V.A</button>
                 </div>
 
                 <!-- CARD 4: REPOSICIONAMENTO -->
-                <div class="card reposicionamento">
-                    <div class="card-icon">📈</div>
+                <div class="card">
                     <h3>Reposicionamento Profissional</h3>
                     <p class="subtitle">Estabilidade + Liberdade</p>
                     
                     <div class="card-meta">
-                        <span>⏱️ 3 meses</span>
-                        <span>💬 Estratégia</span>
+                        <span>3 meses</span>
+                        <span>Estratégia</span>
                     </div>
 
                     <ul class="card-features">
@@ -709,20 +689,14 @@
                         <li>2 sessões/mês + acompanhamento</li>
                     </ul>
 
-                    <div class="card-price">
-                        <p>Investimento</p>
-                        <div class="price">R$ 2.400</div>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">3 meses de transformação</p>
-                    </div>
-
-                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria%20de%20saber%20mais%20sobre%20Reposicionamento%20Profissional', '_blank')">Conhecer Reposicionamento</button>
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Reposicionamento Profissional', '_blank')">Conhecer Reposicionamento</button>
                 </div>
             </div>
         </section>
 
         <!-- SEÇÃO 4: FAQ -->
         <section class="faq-section" id="faq">
-            <h2>❓ Dúvidas Frequentes</h2>
+            <h2>Dúvidas Frequentes</h2>
 
             <div class="faq-item">
                 <p class="faq-question">Por onde começar?</p>
@@ -757,15 +731,15 @@
 
         <!-- SEÇÃO 5: CTA FINAL -->
         <section class="cta-final">
-            <h2>🎯 Pronto Para Transformar?</h2>
+            <h2>Pronto Para Transformar?</h2>
             <p>Escolha seu caminho. O momento é agora.</p>
             
             <div class="cta-buttons-final">
                 <button class="btn-cta btn-cta-primary" onclick="showSection('quiz')">Fazer Teste Rápido</button>
-                <a href="https://wa.me/5541987516166?text=Oi%20Mayga!%20Gostaria%20de%20falar%20sobre%20minhas%20mentorias%20e%20agendar%20uma%20sess%C3%A3o%20diagn%C3%B3stica" class="btn-cta btn-cta-secondary" target="_blank">Falar Comigo no WhatsApp</a>
+                <a href="https://wa.me/5541987516166?text=Oi Mayga! Gostaria de falar sobre minhas mentorias e agendar uma sessão diagnóstica" class="btn-cta btn-cta-secondary" target="_blank">Falar Comigo no WhatsApp</a>
             </div>
 
-            <p class="notice">⚠️ Aviso: Vagas limitadas. Priorizo por ordem de chegada.</p>
+            <p class="notice">Aviso: Vagas limitadas. Priorizo por ordem de chegada.</p>
         </section>
     </div>
 
@@ -777,20 +751,18 @@
         
         <div class="social-links">
             <a href="https://instagram.com/maygacaroliny" target="_blank">Instagram</a>
-            <a href="https://youtube.com" target="_blank">YouTube</a>
-            <a href="https://wa.me/5541987516166" target="_blank">WhatsApp</a>
+            <a href="https://www.youtube.com/@maygacaroliny" target="_blank">YouTube</a>
+            <a href="https://wa.me/5541987516166?text=Olá, vim pelo link da bio do Instagram." target="_blank">WhatsApp</a>
         </div>
     </footer>
 
     <script>
         function showSection(section) {
-            // Esconde tudo
             document.getElementById('quiz').classList.remove('active');
             document.getElementById('cards').classList.remove('active');
             document.getElementById('faq').classList.remove('active');
             document.getElementById('quizResult').classList.remove('active');
 
-            // Mostra seção selecionada
             if (section === 'quiz') {
                 document.getElementById('quiz').classList.add('active');
                 window.scrollTo({ top: document.getElementById('quiz').offsetTop - 100, behavior: 'smooth' });
@@ -816,46 +788,18 @@
             let mensagem = '';
             let link = '';
 
-            // LÓGICA DO QUIZ
             if (q2 === 'procrastinacao' || q3 === '30') {
-                resultado = 'Mentoria Momentum 🚀';
-                mensagem = 'Você precisa de resultado RÁPIDO. Momentum é sua porta de entrada: 4 semanas, clareza + execução. R$ 797/mês ou R$ 1.497 trimestral.';
-                link = 'https://wa.me/5541987516166?text=Descobri%20meu%20match:%20Mentoria%20Momentum!%20Gostaria%20de%20saber%20mais%20sobre%20resultado%20em%2030%20dias';
+                resultado = 'Mentoria Momentum';
+                mensagem = 'Você precisa de resultado rápido. Momentum é sua porta de entrada: 4 semanas, clareza + execução. R$ 797/mês ou R$ 1.497 trimestral.';
+                link = 'https://wa.me/5541987516166?text=Descobri meu match: Mentoria Momentum! Gostaria de saber mais sobre resultado em 30 dias';
             } else if ((q2 === 'execucao' || q2 === 'clareza') && q3 === '3') {
-                resultado = 'Método V.I.V.A 💎';
+                resultado = 'Método V.I.V.A';
                 mensagem = 'Você tem ideia clara mas está emperrado. V.I.V.A é seu programa: 12 semanas de transformação estruturada. Visão → Identidade → Vontade → Ação. R$ 4.497.';
-                link = 'https://wa.me/5541987516166?text=Descobri%20meu%20match:%20M%C3%A9todo%20V.I.V.A!%20Gostaria%20de%20explorar%20este%20programa%20premium';
+                link = 'https://wa.me/5541987516166?text=Descobri meu match: Método V.I.V.A! Gostaria de explorar este programa premium';
             } else if (q2 === 'clareza' && (q1 === 'nao' || q1 === 'parcial')) {
-                resultado = 'Raízes & Visão 🌳';
+                resultado = 'Raízes & Visão';
                 mensagem = 'Você precisa de clareza emocional + propósito profundo. Raízes & Visão é ideal: 8 sessões de estabilidade mental. R$ 2.497.';
-                link = 'https://wa.me/5541987516166?text=Descobri%20meu%20match:%20Ra%C3%ADzes%20e%20Vis%C3%A3o!%20Gostaria%20de%20aprofundar%20em%20clareza%20e%20prop%C3%B3sito';
+                link = 'https://wa.me/5541987516166?text=Descobri meu match: Raízes e Visão! Gostaria de aprofundar em clareza e propósito';
             } else if (q2 === 'carreira') {
-                resultado = 'Reposicionamento Profissional 📈';
-                mensagem = 'Você está em transição de carreira. Reposicionamento é seu programa: 3 meses de estratégia estruturada. CLT sólida + liberdade pra empreender depois. R$ 2.400.';
-                link = 'https://wa.me/5541987516166?text=Descobri%20meu%20match:%20Reposicionamento%20Profissional!%20Gostaria%20de%20saber%20mais%20sobre%20transição%20de%20carreira';
-            } else {
-                resultado = 'Momentum ou Raízes & Visão';
-                mensagem = 'Você pode começar com Momentum (porta de entrada rápida) ou Raízes & Visão (aprofundamento emocional). Converse comigo!';
-                link = 'https://wa.me/5541987516166?text=Fiz%20o%20teste%20e%20gostaria%20de%20conversar%20para%20definir%20meu%20melhor%20programa';
-            }
-
-            // Mostra resultado
-            document.getElementById('resultMessage').innerHTML = `
-                <strong style="font-size: 1.3rem;">${resultado}</strong><br><br>
-                ${mensagem}
-            `;
-            
-            // Atualiza link do botão
-            const btn = document.querySelector('#quizResult .btn-primary');
-            btn.href = link;
-
-            // Esconde quiz, mostra resultado
-            document.getElementById('quiz').classList.remove('active');
-            document.getElementById('quizResult').classList.add('active');
-            
-            window.scrollTo({ top: document.getElementById('quizResult').offsetTop - 100, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
-
+                resultado = 'Reposicionamento Profissional';
+                mensagem = 'Você está em transição de carreira.
