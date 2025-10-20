@@ -802,4 +802,24 @@
                 link = 'https://wa.me/5541987516166?text=Descobri meu match: Raízes e Visão! Gostaria de aprofundar em clareza e propósito';
             } else if (q2 === 'carreira') {
                 resultado = 'Reposicionamento Profissional';
-                mensagem = 'Você está em transição de carreira.
+                mensagem = 'Você está em transição de carreira. Reposicionamento é seu programa: 3 meses de estratégia estruturada. CLT sólida + liberdade pra empreender depois. R$ 2.400.';
+                link = 'https://wa.me/5541987516166?text=Descobri meu match: Reposicionamento Profissional! Gostaria de saber mais sobre transição de carreira';
+            } else {
+                resultado = 'Momentum ou Raízes & Visão';
+                mensagem = 'Você pode começar com Momentum (porta de entrada rápida) ou Raízes & Visão (aprofundamento emocional). Converse comigo!';
+                link = 'https://wa.me/5541987516166?text=Fiz o teste e gostaria de conversar para definir meu melhor programa';
+            }
+
+            document.getElementById('resultMessage').innerHTML = `
+                <strong style="font-size: 1.3rem;">${resultado}</strong><br><br>
+                ${mensagem}
+            `;
+            
+            const btn = document.querySelector('#quizResult .btn-primary');
+            btn.href = link;
+
+            document.getElementById('quiz').classList.remove('active');
+            document.getElementById('quizResult').classList.add('active');
+            
+            window.scrollTo({ top: document.getElementById('quizResult').offsetTop - 100, behavior: 'smooth' });
+        }
