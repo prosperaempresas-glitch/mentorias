@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             color: #333;
             line-height: 1.6;
@@ -24,7 +24,6 @@
             padding: 20px;
         }
 
-        /* ========== SEÇÃO 1: HERO ========== */
         .hero {
             background: linear-gradient(135deg, #102A0B 0%, #1a3d11 100%);
             color: white;
@@ -47,22 +46,12 @@
             opacity: 0.95;
         }
 
-        .hero .subtitle {
-            font-size: 1rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ========== BOTÕES DE NAVEGAÇÃO ========== */
         .nav-buttons {
             display: flex;
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-top: 40px;
         }
 
         .btn {
@@ -95,11 +84,9 @@
 
         .btn-secondary:hover {
             background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
         }
 
-        /* ========== SEÇÃO 2: QUIZ RÁPIDO ========== */
-        .quiz-section {
+        .section {
             background: white;
             padding: 50px 40px;
             border-radius: 20px;
@@ -108,17 +95,11 @@
             display: none;
         }
 
-        .quiz-section.active {
+        .section.active {
             display: block;
-            animation: fadeIn 0.5s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .quiz-section h2 {
+        .section h2 {
             color: #102A0B;
             margin-bottom: 30px;
             font-size: 1.8rem;
@@ -145,7 +126,6 @@
             border: 2px solid #e0e0e0;
             border-radius: 10px;
             cursor: pointer;
-            transition: all 0.3s ease;
             background: #f9f9f9;
         }
 
@@ -154,84 +134,52 @@
             background: #f0f5f0;
         }
 
-        .quiz-option input[type="radio"] {
+        .quiz-option input {
             margin-right: 10px;
         }
 
-        .quiz-option label {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-        }
-
-        .btn-quiz {
+        .btn-submit {
             background: #102A0B;
             color: white;
-            margin-top: 30px;
             width: 100%;
             padding: 15px;
             font-size: 1.1rem;
+            margin-top: 30px;
         }
 
-        .btn-quiz:hover {
+        .btn-submit:hover {
             background: #1a3d11;
         }
 
-        /* ========== RESULTADO QUIZ ========== */
-        .quiz-result {
-            display: none;
+        .result-box {
             background: linear-gradient(135deg, #102A0B 0%, #1a3d11 100%);
             color: white;
             padding: 40px;
             border-radius: 15px;
-            margin-bottom: 40px;
             text-align: center;
+            margin-bottom: 40px;
+            display: none;
         }
 
-        .quiz-result.active {
+        .result-box.active {
             display: block;
-            animation: slideIn 0.5s ease;
         }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .quiz-result h3 {
+        .result-box h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
 
-        .quiz-result p {
+        .result-box p {
             font-size: 1.1rem;
             margin-bottom: 25px;
             opacity: 0.95;
-        }
-
-        /* ========== SEÇÃO 3: CARDS DAS MENTORIAS ========== */
-        .cards-section {
-            margin-bottom: 60px;
-            display: none;
-        }
-
-        .cards-section.active {
-            display: block;
-        }
-
-        .cards-section h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 40px;
-            font-size: 2rem;
         }
 
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 40px;
         }
 
         .card {
@@ -239,10 +187,7 @@
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
             border-top: 5px solid #102A0B;
-            display: flex;
-            flex-direction: column;
         }
 
         .card:hover {
@@ -256,11 +201,9 @@
             color: #333;
         }
 
-        .card .subtitle {
-            font-size: 0.9rem;
+        .card-subtitle {
             color: #666;
             margin-bottom: 20px;
-            font-weight: 500;
         }
 
         .card-meta {
@@ -270,9 +213,6 @@
             padding-bottom: 20px;
             border-bottom: 1px solid #f0f0f0;
             font-size: 0.9rem;
-        }
-
-        .card-meta span {
             color: #102A0B;
             font-weight: 600;
         }
@@ -280,7 +220,6 @@
         .card-features {
             list-style: none;
             margin-bottom: 25px;
-            flex-grow: 1;
         }
 
         .card-features li {
@@ -293,34 +232,7 @@
         .card-features li:before {
             content: "→";
             color: #102A0B;
-            font-weight: bold;
             margin-right: 10px;
-            font-size: 1rem;
-        }
-
-        .card-price {
-            background: #f5f7fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-            display: none;
-        }
-
-        .card-price.show {
-            display: block;
-        }
-
-        .card-price p {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .card-price .price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #102A0B;
         }
 
         .btn-card {
@@ -331,33 +243,11 @@
             border-radius: 10px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             width: 100%;
         }
 
         .btn-card:hover {
             background: #1a3d11;
-            transform: translateY(-2px);
-        }
-
-        /* ========== SEÇÃO 4: FAQ ========== */
-        .faq-section {
-            background: white;
-            padding: 50px 40px;
-            border-radius: 20px;
-            margin-bottom: 60px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            display: none;
-        }
-
-        .faq-section.active {
-            display: block;
-        }
-
-        .faq-section h2 {
-            color: #102A0B;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
         }
 
         .faq-item {
@@ -366,14 +256,9 @@
             border-bottom: 1px solid #f0f0f0;
         }
 
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
         .faq-question {
             font-weight: 600;
             color: #333;
-            margin-bottom: 10px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -383,16 +268,14 @@
             content: "→";
             margin-right: 10px;
             color: #102A0B;
-            font-weight: bold;
         }
 
         .faq-answer {
             color: #666;
             margin-left: 20px;
-            line-height: 1.7;
+            margin-top: 10px;
         }
 
-        /* ========== SEÇÃO 5: CTA FINAL ========== */
         .cta-final {
             background: linear-gradient(135deg, #102A0B 0%, #1a3d11 100%);
             color: white;
@@ -400,7 +283,6 @@
             border-radius: 20px;
             text-align: center;
             margin-bottom: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
         }
 
         .cta-final h2 {
@@ -411,56 +293,15 @@
         .cta-final p {
             font-size: 1.1rem;
             margin-bottom: 30px;
-            opacity: 0.95;
         }
 
-        .cta-buttons-final {
+        .cta-buttons {
             display: flex;
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 20px;
         }
 
-        .btn-cta {
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn-cta-primary {
-            background: white;
-            color: #102A0B;
-        }
-
-        .btn-cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .btn-cta-secondary {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-cta-secondary:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-3px);
-        }
-
-        .cta-final .notice {
-            font-size: 0.9rem;
-            opacity: 0.85;
-            font-style: italic;
-        }
-
-        /* ========== FOOTER ========== */
         footer {
             text-align: center;
             padding: 30px;
@@ -468,10 +309,6 @@
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        footer p {
-            margin-bottom: 10px;
         }
 
         .social-links {
@@ -485,40 +322,18 @@
             color: #102A0B;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
         }
 
-        .social-links a:hover {
-            color: #1a3d11;
-        }
-
-        /* ========== RESPONSIVO ========== */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 1.8rem;
             }
 
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .nav-buttons {
+            .cta-buttons {
                 flex-direction: column;
             }
 
-            .btn {
-                width: 100%;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons-final {
-                flex-direction: column;
-            }
-
-            .btn-cta {
+            .btn, .btn-card {
                 width: 100%;
             }
         }
@@ -526,21 +341,19 @@
 </head>
 <body>
     <div class="container">
-        <!-- SEÇÃO 1: HERO -->
         <section class="hero">
             <h1>Qual Mentoria é Para Você?</h1>
-            <p class="subtitle">Você sabe o que quer, mas não consegue fazer acontecer?</p>
+            <p>Você sabe o que quer, mas não consegue fazer acontecer?</p>
             <p>Identifique qual programa vai transformar seu bloqueio mental em ação real.</p>
             
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="showSection('quiz')">Fazer Teste (30 seg)</button>
-                <button class="btn btn-secondary" onclick="showSection('cards')">Ver as 4 Mentorias</button>
+                <button class="btn btn-primary" onclick="mostrarSecao('quiz')">Fazer Teste (30 seg)</button>
+                <button class="btn btn-secondary" onclick="mostrarSecao('cards')">Ver as 4 Mentorias</button>
                 <a href="https://wa.me/5541987516166?text=Olá, vim pelo link da bio do Instagram." class="btn btn-secondary" target="_blank">WhatsApp</a>
             </div>
         </section>
 
-        <!-- SEÇÃO 2: QUIZ -->
-        <section class="quiz-section" id="quiz">
+        <section class="section" id="quiz">
             <h2>Descubra Qual é Sua Mentoria Ideal</h2>
             
             <div class="quiz-question">
@@ -591,111 +404,86 @@
                 </div>
             </div>
 
-            <button class="btn btn-quiz" onclick="calcularQuiz(); return false;">Ver Meu Match</button>
+            <button class="btn btn-submit" onclick="calcularQuiz()">Ver Meu Match</button>
         </section>
 
-        <!-- RESULTADO QUIZ -->
-        <div class="quiz-result" id="quizResult">
-            <h3>Seu Match Ideal:</h3>
-            <p id="resultMessage"></p>
-            <a href="" class="btn btn-primary" target="_blank">Agendar Diagnóstico Gratuito</a>
+        <div class="result-box" id="resultado">
+            <h3 id="resultTitle">Seu Match Ideal:</h3>
+            <p id="resultText"></p>
+            <a href="" id="resultLink" class="btn btn-primary" target="_blank">Agendar Diagnóstico Gratuito</a>
         </div>
 
-        <!-- SEÇÃO 3: CARDS -->
-        <section class="cards-section" id="cards">
+        <section class="section" id="cards">
             <h2>Os 4 Programas de Mentoria</h2>
             
             <div class="cards-grid">
-                <!-- CARD 1: MOMENTUM -->
                 <div class="card">
                     <h3>Mentoria Momentum</h3>
-                    <p class="subtitle">Resultado em 30 Dias</p>
-                    
+                    <p class="card-subtitle">Resultado em 30 Dias</p>
                     <div class="card-meta">
                         <span>4 semanas</span>
                         <span>4 sessões</span>
                     </div>
-
                     <ul class="card-features">
                         <li>Clareza mental + Propósito</li>
                         <li>Plano executável</li>
                         <li>Suporte via WhatsApp</li>
-                        <li>Bônus no valor de R$ 738</li>
+                        <li>R$ 797/mês</li>
                     </ul>
-
-                    <div class="card-price show">
-                        <p>Investimento</p>
-                        <div class="price">R$ 797</div>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">ou 3x R$ 679 (trimestral)</p>
-                    </div>
-
-                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Mentoria Momentum', '_blank')">Conhecer Momentum</button>
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Mentoria Momentum', '_blank')">Conhecer</button>
                 </div>
 
-                <!-- CARD 2: RAÍZES & VISÃO -->
                 <div class="card">
                     <h3>Raízes & Visão</h3>
-                    <p class="subtitle">Estabilidade + Propósito</p>
-                    
+                    <p class="card-subtitle">Estabilidade + Propósito</p>
                     <div class="card-meta">
                         <span>8 sessões</span>
                         <span>Profundidade</span>
                     </div>
-
                     <ul class="card-features">
                         <li>Organização mental e emocional</li>
                         <li>Visão de futuro clara</li>
                         <li>Acompanhamento diário</li>
-                        <li>Fortalecimento interno</li>
+                        <li>R$ 2.497</li>
                     </ul>
-
-                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Raízes e Visão', '_blank')">Conhecer Raízes & Visão</button>
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Raízes e Visão', '_blank')">Conhecer</button>
                 </div>
 
-                <!-- CARD 3: VIVA -->
                 <div class="card">
                     <h3>Método V.I.V.A</h3>
-                    <p class="subtitle">Do Caos à Execução</p>
-                    
+                    <p class="card-subtitle">Do Caos à Execução</p>
                     <div class="card-meta">
                         <span>12 semanas</span>
                         <span>Premium</span>
                     </div>
-
                     <ul class="card-features">
                         <li>Visão → Identidade → Vontade → Ação</li>
                         <li>4 pilares integrados</li>
                         <li>Resultados tangíveis</li>
-                        <li>Autonomia garantida</li>
+                        <li>R$ 4.497</li>
                     </ul>
-
-                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Método V.I.V.A', '_blank')">Conhecer V.I.V.A</button>
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Método V.I.V.A', '_blank')">Conhecer</button>
                 </div>
 
-                <!-- CARD 4: REPOSICIONAMENTO -->
                 <div class="card">
                     <h3>Reposicionamento Profissional</h3>
-                    <p class="subtitle">Estabilidade + Liberdade</p>
-                    
+                    <p class="card-subtitle">Estabilidade + Liberdade</p>
                     <div class="card-meta">
                         <span>3 meses</span>
                         <span>Estratégia</span>
                     </div>
-
                     <ul class="card-features">
                         <li>Entrada em grandes empresas</li>
                         <li>Estratégia de carreira</li>
                         <li>Base para empreender depois</li>
-                        <li>2 sessões/mês + acompanhamento</li>
+                        <li>R$ 2.400</li>
                     </ul>
-
-                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Reposicionamento Profissional', '_blank')">Conhecer Reposicionamento</button>
+                    <button class="btn-card" onclick="window.open('https://wa.me/5541987516166?text=Gostaria de saber mais sobre Reposicionamento Profissional', '_blank')">Conhecer</button>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 4: FAQ -->
-        <section class="faq-section" id="faq">
+        <section class="section" id="faq">
             <h2>Dúvidas Frequentes</h2>
 
             <div class="faq-item">
@@ -705,71 +493,57 @@
 
             <div class="faq-item">
                 <p class="faq-question">Quanto tempo leva?</p>
-                <p class="faq-answer">De 30 dias (Momentum) a 3 meses (Reposicionamento). Cada programa tem sua própria duração conforme profundidade.</p>
+                <p class="faq-answer">De 30 dias (Momentum) a 3 meses (Reposicionamento). Cada programa tem sua própria duração.</p>
             </div>
 
             <div class="faq-item">
                 <p class="faq-question">É 100% online?</p>
-                <p class="faq-answer">Sim! Todas as mentorias são 100% online. Você escolhe horário e local para as sessões.</p>
+                <p class="faq-answer">Sim! Todas as mentorias são 100% online. Você escolhe horário e local.</p>
             </div>
 
             <div class="faq-item">
                 <p class="faq-question">Posso experimentar antes de investir?</p>
-                <p class="faq-answer">Sim! Ofereço uma sessão diagnóstica gratuita para todos. Sem compromisso. Aí você decide se quer continuar.</p>
-            </div>
-
-            <div class="faq-item">
-                <p class="faq-question">Qual é a diferença entre as mentorias?</p>
-                <p class="faq-answer">Momentum é porta de entrada (rápido). Raízes é profundidade emocional. V.I.V.A é execução máxima. Reposicionamento é estratégia de carreira.</p>
-            </div>
-
-            <div class="faq-item">
-                <p class="faq-question">Vocês oferecem reembolso?</p>
-                <p class="faq-answer">Sim! Se após as 4 primeiras sessões você não sentir avanço em clareza e ação, ofereço 1 sessão bônus sem custo.</p>
+                <p class="faq-answer">Sim! Ofereço uma sessão diagnóstica gratuita. Sem compromisso.</p>
             </div>
         </section>
 
-        <!-- SEÇÃO 5: CTA FINAL -->
         <section class="cta-final">
             <h2>Pronto Para Transformar?</h2>
             <p>Escolha seu caminho. O momento é agora.</p>
             
-            <div class="cta-buttons-final">
-                <button class="btn-cta btn-cta-primary" onclick="showSection('quiz')">Fazer Teste Rápido</button>
-                <a href="https://wa.me/5541987516166?text=Oi Mayga! Gostaria de falar sobre minhas mentorias e agendar uma sessão diagnóstica" class="btn-cta btn-cta-secondary" target="_blank">Falar Comigo no WhatsApp</a>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="mostrarSecao('quiz')">Fazer Teste Rápido</button>
+                <a href="https://wa.me/5541987516166?text=Oi Mayga! Gostaria de falar sobre minhas mentorias" class="btn btn-secondary" target="_blank">Falar Comigo</a>
             </div>
-
-            <p class="notice">Aviso: Vagas limitadas. Priorizo por ordem de chegada.</p>
         </section>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <p><strong>Mayga Caroliny Santos</strong></p>
         <p>Especialista em Desenvolvimento Humano | Neurociência do Desenvolvimento (PUC/RS)</p>
-        <p>12+ anos de experiência em grandes corporações</p>
+        <p>12+ anos em grandes corporações</p>
         
         <div class="social-links">
             <a href="https://instagram.com/maygacaroliny" target="_blank">Instagram</a>
             <a href="https://www.youtube.com/@maygacaroliny" target="_blank">YouTube</a>
-            <a href="https://wa.me/5541987516166?text=Olá, vim pelo link da bio do Instagram." target="_blank">WhatsApp</a>
+            <a href="https://wa.me/5541987516166" target="_blank">WhatsApp</a>
         </div>
     </footer>
 
     <script>
-        function showSection(section) {
+        function mostrarSecao(secao) {
             document.getElementById('quiz').classList.remove('active');
             document.getElementById('cards').classList.remove('active');
             document.getElementById('faq').classList.remove('active');
-            document.getElementById('quizResult').classList.remove('active');
+            document.getElementById('resultado').classList.remove('active');
 
-            if (section === 'quiz') {
+            if (secao === 'quiz') {
                 document.getElementById('quiz').classList.add('active');
-                window.scrollTo({ top: document.getElementById('quiz').offsetTop - 100, behavior: 'smooth' });
-            } else if (section === 'cards') {
+                document.querySelector('#quiz').scrollIntoView({ behavior: 'smooth' });
+            } else if (secao === 'cards') {
                 document.getElementById('cards').classList.add('active');
-                window.scrollTo({ top: document.getElementById('cards').offsetTop - 100, behavior: 'smooth' });
-            } else if (section === 'faq') {
+                document.querySelector('#cards').scrollIntoView({ behavior: 'smooth' });
+            } else if (secao === 'faq') {
                 document.getElementById('faq').classList.add('active');
             }
         }
@@ -784,42 +558,40 @@
                 return;
             }
 
-            let resultado = '';
+            let titulo = '';
             let mensagem = '';
             let link = '';
 
             if (q2 === 'procrastinacao' || q3 === '30') {
-                resultado = 'Mentoria Momentum';
-                mensagem = 'Você precisa de resultado rápido. Momentum é sua porta de entrada: 4 semanas, clareza + execução. R$ 797/mês ou R$ 1.497 trimestral.';
-                link = 'https://wa.me/5541987516166?text=Descobri meu match: Mentoria Momentum! Gostaria de saber mais sobre resultado em 30 dias';
+                titulo = 'Mentoria Momentum';
+                mensagem = 'Você precisa de resultado rápido. Momentum é sua porta de entrada: 4 semanas de clareza e execução. R$ 797/mês.';
+                link = 'https://wa.me/5541987516166?text=Descobri meu match: Mentoria Momentum!';
             } else if ((q2 === 'execucao' || q2 === 'clareza') && q3 === '3') {
-                resultado = 'Método V.I.V.A';
-                mensagem = 'Você tem ideia clara mas está emperrado. V.I.V.A é seu programa: 12 semanas de transformação estruturada. Visão → Identidade → Vontade → Ação. R$ 4.497.';
-                link = 'https://wa.me/5541987516166?text=Descobri meu match: Método V.I.V.A! Gostaria de explorar este programa premium';
+                titulo = 'Método V.I.V.A';
+                mensagem = 'Você tem ideia clara mas está emperrado. V.I.V.A é seu programa: 12 semanas estruturadas. R$ 4.497.';
+                link = 'https://wa.me/5541987516166?text=Descobri meu match: Método V.I.V.A!';
             } else if (q2 === 'clareza' && (q1 === 'nao' || q1 === 'parcial')) {
-                resultado = 'Raízes & Visão';
-                mensagem = 'Você precisa de clareza emocional + propósito profundo. Raízes & Visão é ideal: 8 sessões de estabilidade mental. R$ 2.497.';
-                link = 'https://wa.me/5541987516166?text=Descobri meu match: Raízes e Visão! Gostaria de aprofundar em clareza e propósito';
+                titulo = 'Raízes & Visão';
+                mensagem = 'Você precisa de clareza emocional + propósito profundo. Raízes & Visão é ideal: 8 sessões. R$ 2.497.';
+                link = 'https://wa.me/5541987516166?text=Descobri meu match: Raízes e Visão!';
             } else if (q2 === 'carreira') {
-                resultado = 'Reposicionamento Profissional';
-                mensagem = 'Você está em transição de carreira. Reposicionamento é seu programa: 3 meses de estratégia estruturada. CLT sólida + liberdade pra empreender depois. R$ 2.400.';
-                link = 'https://wa.me/5541987516166?text=Descobri meu match: Reposicionamento Profissional! Gostaria de saber mais sobre transição de carreira';
+                titulo = 'Reposicionamento Profissional';
+                mensagem = 'Você está em transição. Reposicionamento é seu programa: 3 meses de estratégia. R$ 2.400.';
+                link = 'https://wa.me/5541987516166?text=Descobri meu match: Reposicionamento Profissional!';
             } else {
-                resultado = 'Momentum ou Raízes & Visão';
-                mensagem = 'Você pode começar com Momentum (porta de entrada rápida) ou Raízes & Visão (aprofundamento emocional). Converse comigo!';
-                link = 'https://wa.me/5541987516166?text=Fiz o teste e gostaria de conversar para definir meu melhor programa';
+                titulo = 'Momentum ou Raízes & Visão';
+                mensagem = 'Você pode começar com Momentum (rápido) ou Raízes (profundo). Converse comigo!';
+                link = 'https://wa.me/5541987516166?text=Fiz o teste e gostaria de conversar!';
             }
 
-            document.getElementById('resultMessage').innerHTML = `
-                <strong style="font-size: 1.3rem;">${resultado}</strong><br><br>
-                ${mensagem}
-            `;
-            
-            const btn = document.querySelector('#quizResult .btn-primary');
-            btn.href = link;
+            document.getElementById('resultTitle').textContent = titulo;
+            document.getElementById('resultText').textContent = mensagem;
+            document.getElementById('resultLink').href = link;
 
+            document.getElementById('resultado').classList.add('active');
             document.getElementById('quiz').classList.remove('active');
-            document.getElementById('quizResult').classList.add('active');
-            
-            window.scrollTo({ top: document.getElementById('quizResult').offsetTop - 100, behavior: 'smooth' });
+            document.querySelector('#resultado').scrollIntoView({ behavior: 'smooth' });
         }
+    </script>
+</body>
+</html>
